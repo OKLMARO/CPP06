@@ -6,12 +6,14 @@
 /*   By: oamairi <oamairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 11:00:08 by oamairi           #+#    #+#             */
-/*   Updated: 2026/06/25 11:41:35 by oamairi          ###   ########.fr       */
+/*   Updated: 2026/06/25 19:02:18 by oamairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
+#include <climits>
+#include <cstdlib>
 #include <iostream>
 
 typedef enum e_type
@@ -32,6 +34,7 @@ private:
 	ScalarConverter	&operator=(const ScalarConverter &obj);
 
 	static t_type	getType(std::string str);
+	static void		printAllType(std::string str, t_type type);
 
 	~ScalarConverter();
 public:

@@ -6,7 +6,7 @@
 /*   By: oamairi <oamairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 11:03:01 by oamairi           #+#    #+#             */
-/*   Updated: 2026/06/25 13:38:46 by oamairi          ###   ########.fr       */
+/*   Updated: 2026/06/25 19:13:44 by oamairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_type	ScalarConverter::getType(std::string str)
 		{
 			if (std::isdigit(str[i]) == false || type == DOUBLE)
 			{
-				if (std::isdigit(str[i]) == false && type == DOUBLE)
+				if (std::isdigit(str[i]) == false && type == DOUBLE && str[i] != 'f')
 					return ERROR;
 				if (str[i] == '.' || type == DOUBLE)
 				{
@@ -54,9 +54,102 @@ t_type	ScalarConverter::getType(std::string str)
 	return ERROR;
 }
 
+static void	printChar(std::string str, t_type type)
+{
+	if (type == INT || type == FLOAT || type == DOUBLE)
+	{
+		long long num = std::atoll(str.c_str());
+		if (num >= 0 && num <= 127)
+		{
+			if ((num >= 0 && num <= 31) || num == 127)
+			{
+				std::cout << "char: Non displayable\n";
+				return ;
+			}
+			std::cout << "char: '" << (char) num << "'\n";
+			return ;
+		}
+	}
+	else if (type == CHAR)
+	{
+		std::cout << "char: " << str << "\n";
+		return ;
+	}
+	std::cout << "char: impossible\n";
+}
+
+static void	printInt(std::string str, t_type type)
+{
+	if (type == INT || type == FLOAT || type == DOUBLE)
+	{
+		long long num = std::atoll(str.c_str());
+		if (num <= INT_MAX && num >= INT_MIN)
+		{
+			std::cout << "int: " << num <<"\n";
+			return ;
+		}
+		std::cout << "int: impossible\n";
+		return ;
+	}
+	else if (type == CHAR)
+	{
+		std::cout << "int: " << (int) str[1] <<"\n";
+		return ;
+	}
+	std::cout << "int: impossible\n";
+}
+
+static void	printFloat(std::string str, t_type type)
+{
+	if (type == INT || type == FLOAT || type == DOUBLE)
+	{
+			std::cout << "float: " << str <<"\n";
+			return ;
+	}
+	else if (type == CHAR)
+	{
+		std::cout << "float: " << (int) str[1] <<"\n";
+		return ;
+	}
+	else if (type == INF)
+	{
+		std::cout << "float: nanf\n";
+		return ;
+	}
+	std::cout << "float: impossible\n";
+}
+
+static void	printDouble(std::string str, t_type type)
+{
+	if (type == INT || type == FLOAT || type == DOUBLE)
+	{
+			std::cout << "double: " << str.substr(0, str.size() - 1) <<"\n";
+			return ;
+	}
+	else if (type == CHAR)
+	{
+		std::cout << "double: " << (int) str[1] <<"\n";
+		return ;
+	}
+	else if (type == INF)
+	{
+		std::cout << "double: nan\n";
+		return ;
+	}
+	std::cout << "double: impossible\n";
+}
+
+void	ScalarConverter::printAllType(std::string str, t_type type)
+{
+	printChar(str, type);
+	printInt(str, type);
+	printFloat(str, type);
+	printDouble(str, type);
+}
+
 void	ScalarConverter::convert(std::string str)
 {
-	std::cout << getType(str) << "\n";
+	printAllType(str, getType(str));
 }
 
 ScalarConverter::~ScalarConverter() {};
