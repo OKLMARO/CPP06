@@ -6,7 +6,7 @@
 /*   By: oamairi <oamairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 11:03:01 by oamairi           #+#    #+#             */
-/*   Updated: 2026/06/25 19:13:44 by oamairi          ###   ########.fr       */
+/*   Updated: 2026/06/25 19:16:52 by oamairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ t_type	ScalarConverter::getType(std::string str)
 	return ERROR;
 }
 
-static void	printChar(std::string str, t_type type)
+void	ScalarConverter::printChar(std::string str, t_type type)
 {
 	if (type == INT || type == FLOAT || type == DOUBLE)
 	{
@@ -78,7 +78,7 @@ static void	printChar(std::string str, t_type type)
 	std::cout << "char: impossible\n";
 }
 
-static void	printInt(std::string str, t_type type)
+void	ScalarConverter::printInt(std::string str, t_type type)
 {
 	if (type == INT || type == FLOAT || type == DOUBLE)
 	{
@@ -99,7 +99,7 @@ static void	printInt(std::string str, t_type type)
 	std::cout << "int: impossible\n";
 }
 
-static void	printFloat(std::string str, t_type type)
+void	ScalarConverter::printFloat(std::string str, t_type type)
 {
 	if (type == INT || type == FLOAT || type == DOUBLE)
 	{
@@ -119,7 +119,7 @@ static void	printFloat(std::string str, t_type type)
 	std::cout << "float: impossible\n";
 }
 
-static void	printDouble(std::string str, t_type type)
+void	ScalarConverter::printDouble(std::string str, t_type type)
 {
 	if (type == INT || type == FLOAT || type == DOUBLE)
 	{
