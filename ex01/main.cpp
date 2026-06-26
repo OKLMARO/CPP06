@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oamairi <oamairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/25 19:18:35 by oamairi           #+#    #+#             */
-/*   Updated: 2026/06/26 09:05:30 by oamairi          ###   ########.fr       */
+/*   Created: 2026/06/26 09:02:15 by oamairi           #+#    #+#             */
+/*   Updated: 2026/06/26 09:07:53 by oamairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <stdint.h>
+#include "Serializer.hpp"
 
-struct Data
+int	main(void)
 {
-	int			id;
-	std::string	name;
-};
-
-class Serializer
-{
-private:
-	Serializer();
-	Serializer(const Serializer &obj);
-	Serializer	&operator=(const Serializer &obj);
-	~Serializer();
-public:
-	static uintptr_t	serialize(Data* ptr);
-	static Data			*deserialize(uintptr_t raw);
-};
+	Data* original = new Data();
+	uintptr_t raw = Serializer::serialize(original);
+	Data* result = Serializer::deserialize(raw);
+	if (original == result)
+		std::cout << "VRAI !\n";
+	else
+		std::cout << "FAUX !\n";
+	return (0);
+}

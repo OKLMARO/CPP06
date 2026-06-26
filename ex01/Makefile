@@ -6,17 +6,17 @@
 #    By: oamairi <oamairi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/25 19:14:47 by oamairi           #+#    #+#              #
-#    Updated: 2026/06/25 19:15:05 by oamairi          ###   ########.fr        #
+#    Updated: 2026/06/26 09:08:48 by oamairi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	ex02
+NAME	=	ex01
 
 CC		=	c++
 
 CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
-SRCS	=	ScalarConverter.cpp main.cpp
+SRCS	=	Serializer.cpp main.cpp
 
 OBJS	=	$(SRCS:.cpp=.o)
 
