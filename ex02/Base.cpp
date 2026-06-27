@@ -1,34 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   Base.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oamairi <oamairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/25 19:18:35 by oamairi           #+#    #+#             */
-/*   Updated: 2026/06/27 14:23:48 by oamairi          ###   ########.fr       */
+/*   Created: 2026/06/27 14:23:34 by oamairi           #+#    #+#             */
+/*   Updated: 2026/06/27 14:40:16 by oamairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "Base.hpp"
 
-#include <iostream>
-#include <stdint.h>
-
-struct Data
-{
-	int			id;
-	std::string	name;
-};
-
-class Serializer
-{
-private:
-	Serializer();
-	Serializer(const Serializer &obj);
-	Serializer	&operator=(const Serializer &obj);
-	~Serializer();
-public:
-	static uintptr_t	serialize(Data* ptr);
-	static Data			*deserialize(uintptr_t raw);
-};
+Base::~Base(){};

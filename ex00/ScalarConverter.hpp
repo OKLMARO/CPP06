@@ -6,7 +6,7 @@
 /*   By: oamairi <oamairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 11:00:08 by oamairi           #+#    #+#             */
-/*   Updated: 2026/06/25 19:17:19 by oamairi          ###   ########.fr       */
+/*   Updated: 2026/06/27 15:32:21 by oamairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ typedef enum e_type
 {
 	INT,
 	INF,
+	INFF,
 	CHAR,
 	ERROR,
 	FLOAT,

@@ -6,7 +6,7 @@
 #    By: oamairi <oamairi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/26 09:09:43 by oamairi           #+#    #+#              #
-#    Updated: 2026/06/26 09:09:57 by oamairi          ###   ########.fr        #
+#    Updated: 2026/06/27 14:23:29 by oamairi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC		=	c++
 
 CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
-SRCS	=	Serializer.cpp main.cpp
+SRCS	=	Base.cpp main.cpp
 
 OBJS	=	$(SRCS:.cpp=.o)
 
